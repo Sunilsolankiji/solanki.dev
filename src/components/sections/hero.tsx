@@ -32,7 +32,7 @@ export default function Hero() {
           </div>
           <div className="flex items-center justify-center">
             <Image
-              src="/images/IMG_3136.JPG"
+              src="/images/IMG_3136.jpg"
               alt="Sunil Solanki"
               width={550}
               height={550}
