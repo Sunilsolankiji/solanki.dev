@@ -36,7 +36,7 @@ export default function Hero() {
               alt="Sunil Solanki"
               width={550}
               height={550}
-              className="rounded-full object-cover aspect-square shadow-2xl border-4 border-primary"
+              className="rounded-full object-cover aspect-square shadow-2xl border-4 border-primary brightness-90"
               priority
             />
           </div>
