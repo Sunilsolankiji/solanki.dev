@@ -32,12 +32,11 @@ export default function Hero() {
           </div>
           <div className="flex items-center justify-center">
             <Image
-              src="https://placehold.co/550x550.png"
+              src="/images/IMG_3136.JPG"
               alt="Sunil Solanki"
               width={550}
               height={550}
               className="rounded-full object-cover aspect-square shadow-2xl"
-              data-ai-hint="professional portrait"
               priority
             />
           </div>
