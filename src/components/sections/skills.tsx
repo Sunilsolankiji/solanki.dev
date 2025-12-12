@@ -1,17 +1,15 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { AngularIcon, TypeScriptIcon, NextjsIcon, TailwindIcon, FirebaseIcon, ReactIcon } from "@/components/icons";
-import { Code, Database, GitMerge, Combine, LayoutTemplate } from "lucide-react";
+import { AngularIcon, TypeScriptIcon, TailwindIcon, ReactIcon, JavaScriptIcon } from "@/components/icons";
+import { Code, Database, GitMerge, LayoutTemplate } from "lucide-react";
 
 const skills = [
-  { name: "HTML5", icon: <Code className="h-10 w-10 text-primary" /> },
-  { name: "CSS3", icon: <LayoutTemplate className="h-10 w-10 text-primary" /> },
-  { name: "JavaScript", icon: <Combine className="h-10 w-10 text-primary" /> },
-  { name: "TypeScript", icon: <TypeScriptIcon className="h-10 w-10" /> },
   { name: "Angular", icon: <AngularIcon className="h-10 w-10" /> },
   { name: "React", icon: <ReactIcon className="h-10 w-10" /> },
-  { name: "Next.js", icon: <NextjsIcon className="h-10 w-10" /> },
+  { name: "TypeScript", icon: <TypeScriptIcon className="h-10 w-10" /> },
+  { name: "JavaScript", icon: <JavaScriptIcon className="h-10 w-10 text-primary" /> },
+  { name: "HTML5", icon: <Code className="h-10 w-10 text-primary" /> },
+  { name: "CSS3", icon: <LayoutTemplate className="h-10 w-10 text-primary" /> },
   { name: "Tailwind CSS", icon: <TailwindIcon className="h-10 w-10" /> },
-  { name: "Firebase", icon: <FirebaseIcon className="h-10 w-10" /> },
   { name: "Git", icon: <GitMerge className="h-10 w-10 text-primary" /> },
 ];
 

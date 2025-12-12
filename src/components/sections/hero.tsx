@@ -13,7 +13,9 @@ export default function Hero() {
                 Sunil Solanki
               </h1>
               <p className="max-w-prose text-muted-foreground md:text-xl">
-                Computer Science Student & Aspiring Full-Stack Developer.
+                Software Developer, 
+                <br />
+                Specializing in Angular, React, JavaScript, and TypeScript. 
                 <br />
                 Passionate about building modern web applications and learning new technologies.
               </p>

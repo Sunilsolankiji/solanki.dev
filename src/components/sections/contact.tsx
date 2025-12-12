@@ -17,7 +17,7 @@ export default function Contact() {
         </div>
         <div className="my-8">
             <Button asChild size="lg">
-                <a href="mailto:sunilsolanki.dev@gmail.com">
+                <a href="mailto:sunilso9644@gmail.com">
                     <Mail className="mr-2 h-4 w-4" />
                     Say Hello
                 </a>
@@ -27,7 +27,7 @@ export default function Contact() {
             <a href="https://github.com/SunilSolankiji" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground hover:text-foreground transition-colors">
                 <Github className="h-6 w-6" />
             </a>
-            <a href="https://in.linkedin.com/in/sunil-solanki-28b987175" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-foreground transition-colors">
+            <a href="https://www.linkedin.com/in/devsunilsolanki" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-foreground transition-colors">
                 <Linkedin className="h-6 w-6" />
             </a>
         </div>
