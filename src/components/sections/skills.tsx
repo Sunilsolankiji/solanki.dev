@@ -1,43 +1,63 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { AngularIcon, TypeScriptIcon, TailwindIcon, ReactIcon, JavaScriptIcon } from "@/components/icons";
-import { Code, Database, GitMerge, LayoutTemplate } from "lucide-react";
+import { Container, Row, Col, Card } from 'react-bootstrap';
+import {
+    AngularIcon,
+    TypeScriptIcon,
+    BootstrapIcon,
+    ReactIcon,
+    JavaScriptIcon,
+    TailwindIcon,
+    MaterialUIIcon,
+    SassIcon,
+    NextJSIcon,
+    NodeJSIcon,
+    HTML5Icon,
+    CSS3Icon,
+} from '../icons';
+import { GitMerge } from 'lucide-react';
 
 const skills = [
-  { name: "Angular", icon: <AngularIcon className="h-10 w-10" /> },
-  { name: "React", icon: <ReactIcon className="h-10 w-10" /> },
-  { name: "TypeScript", icon: <TypeScriptIcon className="h-10 w-10" /> },
-  { name: "JavaScript", icon: <JavaScriptIcon className="h-10 w-10 text-primary" /> },
-  { name: "HTML5", icon: <Code className="h-10 w-10 text-primary" /> },
-  { name: "CSS3", icon: <LayoutTemplate className="h-10 w-10 text-primary" /> },
-  { name: "Tailwind CSS", icon: <TailwindIcon className="h-10 w-10" /> },
-  { name: "Git", icon: <GitMerge className="h-10 w-10 text-primary" /> },
+    { name: 'Angular', icon: <AngularIcon className="icon-lg"/> },
+    { name: 'React', icon: <ReactIcon className="icon-lg"/> },
+    { name: 'Next.js', icon: <NextJSIcon className="icon-lg"/> },
+    { name: 'TypeScript', icon: <TypeScriptIcon className="icon-lg"/> },
+    { name: 'JavaScript', icon: <JavaScriptIcon className="icon-lg"/> },
+    { name: 'HTML5', icon: <HTML5Icon className="icon-lg"/> },
+    { name: 'CSS3', icon: <CSS3Icon className="icon-lg"/> },
+    { name: 'Tailwind CSS', icon: <TailwindIcon className="icon-lg"/> },
+    { name: 'Bootstrap', icon: <BootstrapIcon className="icon-lg"/> },
+    { name: 'Material UI', icon: <MaterialUIIcon className="icon-lg"/> },
+    { name: 'Sass/SCSS', icon: <SassIcon className="icon-lg"/> },
+    { name: 'Node.js', icon: <NodeJSIcon className="icon-lg"/> },
+    { name: 'Git', icon: <GitMerge className="icon-lg text-primary"/> },
 ];
 
 export default function Skills() {
-  return (
-    <section id="skills" className="w-full py-12 md:py-24 lg:py-32 bg-card flex items-center justify-center">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-          <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">
-              Skills & Technologies
-            </h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              I'm proficient in a range of modern web technologies, with a strong focus on the front-end and a keen interest in expanding my skills to become a full-stack developer.
-            </p>
-          </div>
-        </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
-          {skills.map((skill) => (
-            <Card key={skill.name} className="flex flex-col items-center justify-center p-4 text-center hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="flex flex-col items-center justify-center gap-4 p-0">
-                {skill.icon}
-                <p className="font-semibold">{skill.name}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+    return (
+        <section id="skills" className="section-padding bg-body-tertiary">
+            <Container>
+                <div className="text-center mb-5">
+                    <h2 className="display-5 fw-bold font-headline mb-3">
+                        Skills & Technologies
+                    </h2>
+                    <p className="lead text-secondary mx-auto" style={ { maxWidth: '900px' } }>
+                        I'm proficient in a range of modern web technologies, with a strong focus on the front-end and a
+                        keen interest in expanding my skills to become a full-stack developer.
+                    </p>
+                </div>
+                <Row className="g-3 g-md-4 justify-content-center">
+                    { skills.map((skill) => (
+                        <Col key={ skill.name } xs={ 6 } sm={ 4 } md={ 3 } lg={ 2 }>
+                            <Card className="h-100 text-center bg-body-secondary border-secondary skill-card">
+                                <Card.Body
+                                    className="d-flex flex-column align-items-center justify-content-center gap-2">
+                                    { skill.icon }
+                                    <p className="fw-semibold mb-0 fs-6">{ skill.name }</p>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    )) }
+                </Row>
+            </Container>
+        </section>
+    );
 }

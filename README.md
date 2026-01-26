@@ -1,13 +1,13 @@
-# Sunil Solanki – Personal Portfolio 🌐
+# Solanki.Dev - Portfolio
 
-A sleek, modern, responsive portfolio built with Angular and Firebase, showcasing my skills, projects, and contact methods.
+A personal portfolio website built with React, Vite, and Bootstrap.
 
 ---
 
 ## 🚀 About Me
 
 - **Hi, I'm Sunil Solanki** – a passionate Computer Science student and front-end developer.
-- I love building user-friendly web applications using **Angular**, **TypeScript**, **HTML**, and **CSS**.
+- I love building user-friendly web applications using **React**, **Vite**, **Bootstrap**, **TypeScript**, **HTML**, and **CSS**.
 - Currently exploring full-stack development with Firebase and Cloud Functions.
 
 ---
@@ -17,7 +17,7 @@ A sleek, modern, responsive portfolio built with Angular and Firebase, showcasin
 - Responsive design with **light/dark mode toggle**.
 - **Hero** + **About** + **Projects** + **Skills** + **Contact** sections.
 - Real-time **contact form** powered by Firebase Firestore + email notifications via Cloud Functions.
-- Clean UI using **Angular Material** (or Bootstrap).
+- Clean UI using **React Bootstrap**.
 - SEO optimizations & social card support (Open Graph + metadata).
 - Firebase Hosting configuration for seamless deployment.
 
@@ -46,9 +46,9 @@ A sleek, modern, responsive portfolio built with Angular and Firebase, showcasin
 
 ## Tech Stack
 
-- **Front-end**: Angular, Angular Material / Bootstrap, SCSS, TypeScript  
+- **Front-end**: React 18, Vite, Bootstrap 5, React Bootstrap, SCSS, TypeScript  
 - **Backend / Hosting**: Firebase Hosting, Firestore, Cloud Functions  
-- **Utilities**: Angular CLI, Firebase CLI
+- **Utilities**: Firebase CLI
 
 ---
 
@@ -56,9 +56,8 @@ A sleek, modern, responsive portfolio built with Angular and Firebase, showcasin
 
 ### Prerequisites
 
-- Node.js v16+ & npm  
-- Angular CLI  
-- Firebase CLI  
+- Node.js 18+ 
+- npm or yarn  
 
 ### Installation
 
@@ -66,3 +65,39 @@ A sleek, modern, responsive portfolio built with Angular and Firebase, showcasin
 git clone https://github.com/SunilSolankiji/sunil-portfolio.git
 cd sunil-portfolio
 npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+---
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── header.tsx       # Navigation header
+│   ├── icons.tsx        # Custom SVG icons
+│   └── sections/
+│       ├── about.tsx    # About section
+│       ├── contact.tsx  # Contact/Footer section
+│       ├── hero.tsx     # Hero section
+│       ├── projects.tsx # Projects showcase
+│       └── skills.tsx   # Skills section
+├── App.tsx              # Main app component
+├── main.tsx             # Entry point
+└── index.css            # Global styles
+```
+
+---
+
+## Author
+
+Sunil Solanki - [LinkedIn](https://www.linkedin.com/in/devsunilsolanki) - [GitHub](https://github.com/SunilSolankiji)

@@ -1,82 +1,95 @@
-'use client';
-
-import Link from 'next/link';
-import { Github, Linkedin } from 'lucide-react';
-import { Button } from './ui/button';
-import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
-import { Menu } from 'lucide-react';
 import { useState } from 'react';
+import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
+import { Github, Linkedin, Menu, Sun, Moon } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 const routes = [
-  { name: 'About', href: '#about' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Contact', href: '#contact' },
+	{ name: 'About', href: '#about' },
+	{ name: 'Projects', href: '#projects' },
+	{ name: 'Skills', href: '#skills' },
+	{ name: 'Contact', href: '#contact' },
 ];
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+	const [show, setShow] = useState(false);
+	const { theme, toggleTheme } = useTheme();
 
-  return (
-    <header className="sticky top-0 flex justify-center z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 max-w-screen-2xl items-center justify-between">
-        <div className="mr-4 flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
-            <span className="font-bold font-headline">Solanki.Dev</span>
-          </Link>
-          <nav className="hidden items-center gap-6 text-sm md:flex">
-            {routes.map((route) => (
-              <a
-                key={route.href}
-                href={route.href}
-                className="transition-colors hover:text-foreground/80 text-foreground/60"
-              >
-                {route.name}
-              </a>
-            ))}
-          </nav>
-        </div>
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
 
-        <div className="flex items-center justify-end space-x-2">
-          <Button variant="ghost" size="icon" asChild>
-            <a href="https://github.com/SunilSolankiji" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <Github className="h-4 w-4" />
-            </a>
-          </Button>
-          <Button variant="ghost" size="icon" asChild>
-            <a href="https://in.linkedin.com/in/sunil-solanki-28b987175" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <Linkedin className="h-4 w-4" />
-            </a>
-          </Button>
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
-                <Menu />
-                <span className="sr-only">Toggle Menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="left">
-              <div className="flex flex-col gap-6 pt-10">
-                <Link href="/" className="flex items-center space-x-2" onClick={() => setIsOpen(false)}>
-                  <span className="font-bold font-headline">Solanki.Dev</span>
-                </Link>
-                <nav className="flex flex-col gap-4">
-                  {routes.map((route) => (
-                    <a
-                      key={route.href}
-                      href={route.href}
-                      onClick={() => setIsOpen(false)}
-                      className="text-lg font-medium transition-colors hover:text-foreground/80 text-foreground/60"
-                    >
-                      {route.name}
-                    </a>
-                  ))}
-                </nav>
-              </div>
-            </SheetContent>
-          </Sheet>
-        </div>
-      </div>
-    </header>
-  );
+	return (
+		<Navbar expand="md" sticky="top" className="navbar-dark-custom border-bottom border-secondary">
+			<Container>
+				<Navbar.Brand href="/" className="fw-bold font-headline">
+					Solanki.Dev
+				</Navbar.Brand>
+
+			<div className="d-flex align-items-center gap-2 ms-auto me-md-0 order-md-last">
+				<button
+					className="btn btn-outline-secondary btn-sm"
+					onClick={toggleTheme}
+					aria-label="Toggle theme"
+					title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+				>
+					{theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+				</button>
+				<a
+					href="https://github.com/SunilSolankiji"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="btn btn-outline-secondary btn-sm"
+					aria-label="GitHub"
+				>
+					<Github size={16} />
+				</a>
+				<a
+					href="https://www.linkedin.com/in/devsunilsolanki"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="btn btn-outline-secondary btn-sm"
+					aria-label="LinkedIn"
+				>
+					<Linkedin size={16} />
+				</a>
+					<button
+						className="btn btn-outline-secondary btn-sm d-md-none"
+						onClick={handleShow}
+						aria-label="Toggle Menu"
+					>
+						<Menu size={16} />
+					</button>
+				</div>
+
+				<Navbar.Collapse className="d-none d-md-flex">
+					<Nav className="me-auto">
+						{routes.map((route) => (
+							<Nav.Link key={route.href} href={route.href} className="text-secondary">
+								{route.name}
+							</Nav.Link>
+						))}
+					</Nav>
+				</Navbar.Collapse>
+
+				<Offcanvas show={show} onHide={handleClose} placement="start">
+					<Offcanvas.Header closeButton>
+						<Offcanvas.Title className="fw-bold font-headline">Solanki.Dev</Offcanvas.Title>
+					</Offcanvas.Header>
+					<Offcanvas.Body>
+						<Nav className="flex-column gap-3">
+							{routes.map((route) => (
+								<Nav.Link
+									key={route.href}
+									href={route.href}
+									onClick={handleClose}
+									className="fs-5 text-secondary"
+								>
+									{route.name}
+								</Nav.Link>
+							))}
+						</Nav>
+					</Offcanvas.Body>
+				</Offcanvas>
+			</Container>
+		</Navbar>
+	);
 }
