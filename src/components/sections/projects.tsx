@@ -45,9 +45,9 @@ export default function Projects() {
             a learning journey and a step forward in my development career.
           </p>
         </div>
-        <Row className="g-4">
+        <Row className="g-3 g-md-4">
           {projects.map((project) => (
-            <Col key={project.title} md={6}>
+            <Col key={project.title} xs={12} md={6} lg={6}>
               <Card className="h-100 bg-body-tertiary border-secondary card-hover">
                 <Card.Header className="bg-transparent border-0 pt-4">
                   <Card.Title className="h4">{project.title}</Card.Title>

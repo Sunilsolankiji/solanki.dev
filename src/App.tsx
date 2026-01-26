@@ -4,11 +4,13 @@ import About from './components/sections/about';
 import Projects from './components/sections/projects';
 import Skills from './components/sections/skills';
 import Contact from './components/sections/contact';
+import ScrollPath from './components/ScrollPath';
 import { ThemeProvider } from './context/ThemeContext';
 
 function AppContent() {
   return (
     <div className="d-flex flex-column min-vh-100">
+      <ScrollPath />
       <Header />
       <main className="flex-grow-1 w-100">
         <Hero />
