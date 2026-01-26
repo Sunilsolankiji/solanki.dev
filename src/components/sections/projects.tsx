@@ -6,7 +6,7 @@ const projects = [
     title: "JavaScript Gantt",
     description:
       "A lightweight, interactive Gantt chart component built with vanilla JavaScript, offering a simple way to visualize project timelines.",
-    image: "/images/jsgantt.png",
+    image: "images/jsgantt.png",
     tags: ["JavaScript", "HTML", "CSS"],
     codeLink: "https://github.com/SunilSolankiji/javascriptgantt",
     demoLink: "https://sunilsolankiji.github.io/javascriptgantt/",
@@ -16,7 +16,7 @@ const projects = [
     title: "TourJS",
     description:
       "A guided tour/onboarding library enabling developers to create step-by-step walkthroughs for any web application, Improved user learning and navigation through interactive UI overlays.",
-    image: "/images/jstour.png",
+    image: "images/jstour.png",
     tags: ["JavaScript", "HTML", "CSS"],
     codeLink: "https://github.com/Sunilsolankiji/tourjs",
     demoLink: "https://sunilsolankiji.github.io/javascriptgantt/",
@@ -24,7 +24,7 @@ const projects = [
   {
     title: "Angular UI Component Library",
     description: `A scalable Angular UI Component Library. Built reusable components (tables, forms, dialogs, charts, layout modules, dynamic UI elements and more) to standardize the design system. Reduced project development time by enabling teams to plug-and-play pre-built, customizable UI components.`,
-    image: "/images/angular-ui-lib.png",
+    image: "images/angular-ui-lib.png",
     tags: ["Angular", "TypeScript", "HTML", "CSS"],
   },
 ];
