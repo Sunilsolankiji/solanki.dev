@@ -22,7 +22,7 @@ export default function About() {
           </p>
           <div className="d-flex flex-column flex-sm-row justify-content-center gap-2 gap-sm-3 mt-4">
             <Button
-              href="https://github.com/SunilSolankiji"
+              href="https://github.com/Sunilsolankiji"
               target="_blank"
               rel="noopener noreferrer"
               variant="outline-light"

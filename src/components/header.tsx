@@ -34,7 +34,7 @@ export default function Header() {
 					{theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
 				</button>
 				<a
-					href="https://github.com/SunilSolankiji"
+					href="https://github.com/Sunilsolankiji"
 					target="_blank"
 					rel="noopener noreferrer"
 					className="btn btn-outline-secondary btn-sm"

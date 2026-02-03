@@ -23,7 +23,7 @@ export default function Contact() {
         </div>
         <div className="d-flex justify-content-center gap-3 mb-4">
           <a
-            href="https://github.com/SunilSolankiji"
+            href="https://github.com/Sunilsolankiji"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"

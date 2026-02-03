@@ -1,43 +1,7 @@
 import { Container, Row, Col, Card, Badge, Button } from "react-bootstrap";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { useState } from "react";
-
-const projects = [
-    {
-        title: "JavaScript Gantt",
-        description:
-            "A lightweight, interactive Gantt chart component built with vanilla JavaScript, offering a simple way to visualize project timelines.",
-        image: "images/jsgantt.png",
-        tags: ["JavaScript", "HTML", "CSS"],
-        codeLink: "https://github.com/SunilSolankiji/javascriptgantt",
-        demoLink: "https://sunilsolankiji.github.io/javascriptgantt/",
-        docLink: "https://sunilsolankiji.github.io/js-gantt-docs/",
-    },
-    {
-        title: "TourJS",
-        description:
-            "A guided tour/onboarding library enabling developers to create step-by-step walkthroughs for any web application, Improved user learning and navigation through interactive UI overlays.",
-        image: "images/jstour.png",
-        tags: ["JavaScript", "HTML", "CSS"],
-        codeLink: "https://github.com/Sunilsolankiji/tourjs",
-        demoLink: "https://sunilsolankiji.github.io/javascriptgantt/",
-    },
-    {
-        title: "DropFile",
-        description:
-            "A modern file upload and management library with drag-and-drop support, file preview, and cloud storage integration. Built to make file handling seamless and user-friendly across web applications with real-time upload progress tracking.",
-        image: "images/dropfile.png",
-        tags: ["JavaScript", "React", "TypeScript", "File Upload"],
-        codeLink: "https://github.com/Sunilsolankiji/DropFile",
-        demoLink: "https://sunilsolankiji.github.io/DropFile/"
-    },
-    {
-        title: "Angular UI Component Library",
-        description: `A scalable Angular UI Component Library. Built reusable components (tables, forms, dialogs, charts, layout modules, dynamic UI elements and more) to standardize the design system. Reduced project development time by enabling teams to plug-and-play pre-built, customizable UI components.`,
-        image: "images/angular-ui-lib.png",
-        tags: ["Angular", "TypeScript", "HTML", "CSS"],
-    },
-];
+import { projects } from "@/data/projects.ts";
 
 export default function Projects() {
     const [showAll, setShowAll] = useState(false);
@@ -129,26 +93,44 @@ export default function Projects() {
                     )) }
                 </Row>
 
-                {/* Show More / Show Less Button */}
+                {/* Show More / Show Less Button */ }
                 { hasMoreProjects && (
-                    <div className="text-center mt-5">
+                    <div
+                        className="text-center position-relative"
+                        style={{ marginTop: showAll ? '2rem' : '-2rem', paddingTop: showAll ? 0 : '3rem' }}
+                    >
+                        {/* Fade gradient overlay */ }
+                        <div
+                            style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: '-1rem',
+                                right: '-1rem',
+                                height: showAll ? '0' : '150px',
+                                background: 'linear-gradient(to bottom, transparent 0%, var(--bs-body-bg) 85%)',
+                                pointerEvents: 'none',
+                                transition: 'height 0.4s ease, opacity 0.4s ease',
+                                opacity: showAll ? 0 : 1,
+                            }}
+                        />
                         <Button
-                            variant="primary"
-                            size="lg"
+                            variant="outline-secondary"
                             onClick={ () => setShowAll(!showAll) }
-                            className="d-flex align-items-center justify-content-center gap-2 mx-auto"
+                            className="rounded-pill px-4 py-2 d-inline-flex align-items-center gap-2 position-relative"
+                            style={{
+                                zIndex: 1,
+                                transition: 'all 0.2s ease',
+                                backdropFilter: 'blur(4px)',
+                            }}
                         >
-                            { showAll ? (
-                                <>
-                                    Show Less
-                                    <ChevronDown className="rotate-180" size={ 20 } style={ { transform: 'rotate(180deg)' } } />
-                                </>
-                            ) : (
-                                <>
-                                    Show More Projects
-                                    <ChevronDown size={ 20 } />
-                                </>
-                            ) }
+                            { showAll ? "Show less" : `Show more` }
+                            <ChevronDown
+                                size={ 16 }
+                                style={ {
+                                    transform: showAll ? 'rotate(180deg)' : 'rotate(0deg)',
+                                    transition: 'transform 0.3s ease',
+                                } }
+                            />
                         </Button>
                     </div>
                 ) }
