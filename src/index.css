@@ -1426,7 +1426,6 @@ h1 {
   .hero-image {
     width: 300px;
     height: 300px;
-    margin-bottom: var(--spacing-xl);
   }
 
   .hero-image-wrapper {
