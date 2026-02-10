@@ -9,7 +9,9 @@ export default function Hero() {
           <Col lg={6} className="order-2 order-lg-1">
             <div className="mb-4">
               <h1 className="display-4 fw-bold font-headline mb-3">
-                Sunil Solanki
+                <span style={{ fontSize: '1.5rem', fontWeight: 500 }}>नमस्ते,</span>
+                <br />
+                I'm Sunil Solanki
               </h1>
               <p className="lead text-secondary">
                 Software Developer,

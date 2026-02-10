@@ -310,6 +310,7 @@ body {
   transform: translateY(-8px) scale(1.05);
   box-shadow: 0 12px 24px rgba(13, 110, 253, 0.2) !important;
   border-color: var(--accent-primary);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .skill-card .icon-lg {
@@ -759,15 +760,6 @@ p {
   }
 }
 
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
 @keyframes rotate {
   from {
     transform: rotate(0deg);
@@ -1003,24 +995,6 @@ p {
   opacity: 1;
 }
 
-/* Badge pop animation with scale and bounce */
-.badge {
-  animation: badgePop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-}
-
-@keyframes badgePop {
-  0% {
-    opacity: 0;
-    transform: scale(0) rotate(-180deg);
-  }
-  70% {
-    transform: scale(1.2) rotate(10deg);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) rotate(0);
-  }
-}
 
 /* ATTENTION GRABBER: Link underline with glow */
 a:not(.btn) {

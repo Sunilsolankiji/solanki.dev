@@ -42,7 +42,7 @@ export default function Contact() {
           </a>
         </div>
         <div className="text-secondary small">
-          © {year} Sunil Solanki. All rights reserved.
+          Made with <span style={{color: '#e25555', fontSize: '1.1em', verticalAlign: 'middle'}}>❤️</span> by Sunil Solanki · © {year}
         </div>
       </Container>
     </footer>

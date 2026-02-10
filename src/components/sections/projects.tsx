@@ -1,5 +1,5 @@
 import { Container, Row, Col, Card, Badge, Button } from "react-bootstrap";
-import { ArrowUpRight, ChevronDown } from "lucide-react";
+import { ChevronDown, SquareArrowOutUpRightIcon, Github } from "lucide-react";
 import { useState } from "react";
 import { projects } from "@/data/projects.ts";
 
@@ -38,7 +38,7 @@ export default function Projects() {
                                     <img
                                         src={ project.image }
                                         alt={ project.title }
-                                        className="img-fluid rounded mb-3"
+                                        className="img-fluid rounded mb-3 w-100"
                                     />
                                     <div className="d-flex flex-wrap gap-2">
                                         { project.tags.map((tag) => (
@@ -58,8 +58,8 @@ export default function Projects() {
                                                 variant="outline-light"
                                                 className="flex-grow-1"
                                             >
-                                                View on GitHub
-                                                <ArrowUpRight className="ms-2" size={ 16 }/>
+                                                <Github className="me-2" size={ 16 } />
+                                                Code
                                             </Button>
                                         ) }
                                         { project.demoLink && (
@@ -70,8 +70,8 @@ export default function Projects() {
                                                 variant="outline-light"
                                                 className="flex-grow-1"
                                             >
-                                                Demo
-                                                <ArrowUpRight className="ms-2" size={ 16 }/>
+                                                <SquareArrowOutUpRightIcon className="me-2" size={ 16 }/>
+                                                Live Demo
                                             </Button>
                                         ) }
                                         { project.docLink && (
@@ -82,8 +82,8 @@ export default function Projects() {
                                                 variant="outline-light"
                                                 className="flex-grow-1"
                                             >
+                                                <SquareArrowOutUpRightIcon className="me-2" size={ 16 }/>
                                                 Docs
-                                                <ArrowUpRight className="ms-2" size={ 16 }/>
                                             </Button>
                                         ) }
                                     </div>
@@ -97,11 +97,11 @@ export default function Projects() {
                 { hasMoreProjects && (
                     <div
                         className="text-center position-relative"
-                        style={{ marginTop: showAll ? '2rem' : '-2rem', paddingTop: showAll ? 0 : '3rem' }}
+                        style={ { marginTop: showAll ? '2rem' : '-2rem', paddingTop: showAll ? 0 : '3rem' } }
                     >
                         {/* Fade gradient overlay */ }
                         <div
-                            style={{
+                            style={ {
                                 position: 'absolute',
                                 top: 0,
                                 left: '-1rem',
@@ -111,17 +111,17 @@ export default function Projects() {
                                 pointerEvents: 'none',
                                 transition: 'height 0.4s ease, opacity 0.4s ease',
                                 opacity: showAll ? 0 : 1,
-                            }}
+                            } }
                         />
                         <Button
                             variant="outline-secondary"
                             onClick={ () => setShowAll(!showAll) }
                             className="rounded-pill px-4 py-2 d-inline-flex align-items-center gap-2 position-relative"
-                            style={{
+                            style={ {
                                 zIndex: 1,
                                 transition: 'all 0.2s ease',
                                 backdropFilter: 'blur(4px)',
-                            }}
+                            } }
                         >
                             { showAll ? "Show less" : `Show more` }
                             <ChevronDown
