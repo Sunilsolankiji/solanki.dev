@@ -27,7 +27,7 @@ export default function Header() {
 			<div className="d-flex align-items-center gap-2 ms-auto me-md-0 order-md-last">
 				<button
 					className="btn btn-outline-secondary btn-sm"
-					onClick={toggleTheme}
+					onClick={(e) => toggleTheme(e)}
 					aria-label="Toggle theme"
 					title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
 				>

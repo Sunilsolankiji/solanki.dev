@@ -1,10 +1,10 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode, MouseEvent } from 'react';
 
 type Theme = 'light' | 'dark';
 
 interface ThemeContextType {
   theme: Theme;
-  toggleTheme: () => void;
+  toggleTheme: (event?: MouseEvent<HTMLButtonElement>) => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -22,8 +22,46 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  const toggleTheme = async (event?: MouseEvent<HTMLButtonElement>) => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+
+    // Use View Transitions API if supported
+    if (document.startViewTransition && event) {
+      // Get the click position for the circular animation
+      const x = event.clientX;
+      const y = event.clientY;
+
+      // Calculate the maximum radius needed to cover the entire screen
+      const endRadius = Math.hypot(
+        Math.max(x, window.innerWidth - x),
+        Math.max(y, window.innerHeight - y)
+      );
+
+      const transition = document.startViewTransition(() => {
+        setTheme(newTheme);
+        document.documentElement.setAttribute('data-bs-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+      });
+
+      await transition.ready;
+
+      // Animate the circular clip-path - always expand from button
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${endRadius}px at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration: 400,
+          easing: 'ease-in-out',
+          pseudoElement: '::view-transition-new(root)',
+        }
+      );
+    } else {
+      setTheme(newTheme);
+    }
   };
 
   return (
