@@ -29,6 +29,16 @@ export const projects: Project[] = [
         demoLink: "https://sunilsolankiji.github.io/javascriptgantt/",
     },
     {
+        title: "PerfectUI",
+        description:
+            "A modern, tree-shakable Angular UI component library built with Angular 21+ standalone components and signals. Ships secondary entry points (dialog, toastr, otp, select, tabs and more) for optimal bundle size, with CSS custom property theming, dark mode, and full ARIA accessibility. Published to npm as @sunilsolankiji/perfectui.",
+        image: "images/perfectui.png",
+        tags: ["Angular", "TypeScript", "ng-packagr", "Component Library", "SCSS"],
+        codeLink: "https://github.com/sunilsolankiji/perfect-ui",
+        demoLink: "https://sunilsolankiji.github.io/perfect-ui/",
+        docLink: "https://www.npmjs.com/package/@sunilsolankiji/perfectui",
+    }
+    {
         title: "DropFile",
         description:
             "A modern file upload and management library with drag-and-drop support, file preview, and cloud storage integration. Built to make file handling seamless and user-friendly across web applications with real-time upload progress tracking.",
