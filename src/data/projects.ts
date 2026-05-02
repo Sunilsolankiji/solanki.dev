@@ -37,7 +37,7 @@ export const projects: Project[] = [
         codeLink: "https://github.com/sunilsolankiji/perfect-ui",
         demoLink: "https://sunilsolankiji.github.io/perfect-ui/",
         docLink: "https://www.npmjs.com/package/@sunilsolankiji/perfectui",
-    }
+    },
     {
         title: "DropFile",
         description:
