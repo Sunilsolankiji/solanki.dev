@@ -18,8 +18,9 @@ export default function Header() {
 	const handleClose = () => setExpanded(false);
 
 	useEffect(() => {
-		const sections = routes
-			.map((route) => document.querySelector(route.href))
+		const allSectionIds = ['#home', ...routes.map((route) => route.href)];
+		const sections = allSectionIds
+			.map((id) => document.querySelector(id))
 			.filter((el): el is Element => el !== null);
 
 		if (sections.length === 0 || typeof IntersectionObserver === 'undefined') return;
@@ -28,7 +29,7 @@ export default function Header() {
 			(entries) => {
 				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
-						setActiveSection(`#${entry.target.id}`);
+						setActiveSection(entry.target.id === 'home' ? '' : `#${entry.target.id}`);
 					}
 				});
 			},
