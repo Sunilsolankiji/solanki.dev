@@ -4,7 +4,7 @@ import { ArrowUpRight, MapPin } from 'lucide-react';
 import Typewriter from '../Typewriter';
 import MagneticButton from '../MagneticButton';
 
-const roles = ['Frontend Engineer', 'JavaScript Developer', 'TypeScript Developer', 'React Developer', 'Angular Developer', 'NodeJS Developer', 'UI Craftsman'];
+const roles = ['Angular Developer', 'React Developer', 'TypeScript Developer', 'JavaScript Developer', 'NodeJS Developer', 'Frontend Engineer', 'UI Craftsman'];
 
 export default function Hero() {
     const [imageState, setImageState] = useState<'loading' | 'loaded' | 'error'>('loading');
