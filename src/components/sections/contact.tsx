@@ -1,5 +1,6 @@
 import { Container, Button } from 'react-bootstrap';
 import { Github, Linkedin, Mail } from 'lucide-react';
+import Reveal from '../Reveal';
 
 export default function Contact() {
   const year = new Date().getFullYear();
@@ -7,13 +8,13 @@ export default function Contact() {
   return (
     <footer id="contact" className="section-padding border-top border-secondary">
       <Container className="text-center">
-        <div className="mb-4">
+        <Reveal as="div" className="mb-4">
           <div className="section-kicker">04 / contact</div>
           <h2 className="display-5 fw-bold font-headline mb-3">Have a good one in mind?</h2>
           <p className="lead text-secondary mx-auto" style={{ maxWidth: '600px' }}>
             I'm always open to discussing new projects, creative ideas, or opportunities to be part of an amazing team. Feel free to reach out!
           </p>
-        </div>
+        </Reveal>
         <div className="my-4">
           <Button href="mailto:sunilso9644@gmail.com" variant="primary" size="lg">
             <Mail className="me-2" size={16} />

@@ -1,4 +1,5 @@
 import { Container, Row, Col, Card } from 'react-bootstrap';
+import Reveal from '../Reveal';
 import {
     AngularIcon,
     TypeScriptIcon,
@@ -35,26 +36,28 @@ export default function Skills() {
     return (
         <section id="skills" className="section-padding bg-body-tertiary">
             <Container>
-                <div className="text-center mb-5">
+                <Reveal as="div" className="text-center mb-5">
                     <div className="section-kicker">03 / toolbox</div>
                     <h2 className="display-5 fw-bold font-headline mb-3">My everyday stack.</h2>
                     <p className="lead text-secondary mx-auto" style={ { maxWidth: '900px' } }>
                         A practical frontend toolkit for turning product ideas into accessible, maintainable interfaces.
                     </p>
-                </div>
+                </Reveal>
                 <Row className="g-3 g-md-4 justify-content-center">
-                    { skills.map((skill) => (
+                            { skills.map((skill, index) => (
                         <Col key={ skill.name } xs={ 6 } sm={ 4 } md={ 3 } lg={ 2 }>
-                            <Card className="h-100 text-center bg-body-secondary border-secondary skill-card">
-                                <Card.Body
-                                    className="d-flex flex-column align-items-center justify-content-center gap-2">
-                                    { skill.icon }
-                                    <p className="fw-semibold mb-0 fs-6">{ skill.name }</p>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    )) }
-                </Row>
+                                    <Reveal delay={ (index % 6) * 60 }>
+                                        <Card className="h-100 text-center bg-body-secondary border-secondary skill-card">
+                                            <Card.Body
+                                                className="d-flex flex-column align-items-center justify-content-center gap-2">
+                                                { skill.icon }
+                                                <p className="fw-semibold mb-0 fs-6">{ skill.name }</p>
+                                            </Card.Body>
+                                        </Card>
+                                    </Reveal>
+                                </Col>
+                            )) }
+                        </Row>
             </Container>
         </section>
     );

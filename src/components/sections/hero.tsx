@@ -1,21 +1,42 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { ArrowUpRight, MapPin } from 'lucide-react';
 
 export default function Hero() {
     const [imageState, setImageState] = useState<'loading' | 'loaded' | 'error'>('loading');
+    const [mounted, setMounted] = useState(false);
+    const sectionRef = useRef<HTMLElement>(null);
     const profileImage = 'images/me.png';
     const placeholderImage = 'images/me-placeholder.jpeg';
 
+    useEffect(() => {
+        const id = requestAnimationFrame(() => setMounted(true));
+        return () => cancelAnimationFrame(id);
+    }, []);
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+        const rect = sectionRef.current?.getBoundingClientRect();
+        if (!rect) return;
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        sectionRef.current?.style.setProperty('--spot-x', `${x}%`);
+        sectionRef.current?.style.setProperty('--spot-y', `${y}%`);
+    };
+
     return (
-        <section id="home" className="hero-section d-flex align-items-center justify-content-center">
+        <section
+            id="home"
+            ref={sectionRef}
+            onMouseMove={handleMouseMove}
+            className="hero-section d-flex align-items-center justify-content-center"
+        >
             <Container>
                 <Row className="g-4 g-lg-5 align-items-center">
-                    <Col lg={ 6 } className="order-2 order-lg-1">
+                    <Col lg={ 6 } className={`order-2 order-lg-1 hero-reveal ${mounted ? 'hero-reveal-in' : ''}`}>
                         <div className="mb-4">
                             <div className="eyebrow greeting mb-3">नमस्ते,</div>
                             <h1 className="display-4 fw-bold font-headline mb-3">
-                                I'm <span className="text-accent">Sunil Solanki</span>
+                                I'm <span className="text-accent hero-name-gradient">Sunil Solanki</span>
                             </h1>
                             <div className="eyebrow availability"><span className="status-dot" /> Available for select opportunities</div>
                             <p className="hero-subtitle text-secondary">
@@ -42,7 +63,7 @@ export default function Hero() {
                             <div><strong>∞</strong><span>curiosity shipped</span></div>
                         </div>
                     </Col>
-                    <Col lg={ 6 } className="order-1 order-lg-2 text-center">
+                    <Col lg={ 6 } className={`order-1 order-lg-2 text-center hero-reveal hero-reveal-delay ${mounted ? 'hero-reveal-in' : ''}`}>
                         <div className="hero-visual">
                             <div className="code-card">
                                 <div className="code-card-bar"><span /><span /><span /><small>sunil.ts</small></div>

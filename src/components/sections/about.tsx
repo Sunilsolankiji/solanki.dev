@@ -1,11 +1,12 @@
 import { Container, Button } from 'react-bootstrap';
 import { Github, Linkedin } from 'lucide-react';
+import Reveal from '../Reveal';
 
 export default function About() {
   return (
     <section id="about" className="section-padding bg-body-tertiary">
       <Container>
-        <div className="text-center">
+        <Reveal as="div" className="text-center">
           <div className="section-kicker">01 / about</div>
           <h2 className="display-5 fw-bold font-headline mb-4">Building with intent.</h2>
           <p className="lead text-secondary mx-auto" style={{ maxWidth: '900px' }}>
@@ -39,7 +40,7 @@ export default function About() {
               LinkedIn
             </Button>
           </div>
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

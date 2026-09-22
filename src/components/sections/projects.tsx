@@ -2,6 +2,29 @@ import { Container, Row, Col, Card, Badge, Button } from "react-bootstrap";
 import { ChevronDown, SquareArrowOutUpRightIcon, Github } from "lucide-react";
 import { useState } from "react";
 import { projects } from "@/data/projects.ts";
+import Reveal from "../Reveal";
+
+const MAX_TILT = 6;
+
+function handleCardTilt(e: React.MouseEvent<HTMLDivElement>) {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const px = x / rect.width;
+    const py = y / rect.height;
+
+    card.style.setProperty("--tilt-y", `${(px - 0.5) * MAX_TILT * 2}deg`);
+    card.style.setProperty("--tilt-x", `${(0.5 - py) * MAX_TILT * 2}deg`);
+    card.style.setProperty("--glow-x", `${px * 100}%`);
+    card.style.setProperty("--glow-y", `${py * 100}%`);
+}
+
+function resetCardTilt(e: React.MouseEvent<HTMLDivElement>) {
+    const card = e.currentTarget;
+    card.style.setProperty("--tilt-x", "0deg");
+    card.style.setProperty("--tilt-y", "0deg");
+}
 
 export default function Projects() {
     const [showAll, setShowAll] = useState(false);
@@ -12,7 +35,7 @@ export default function Projects() {
     return (
         <section id="projects" className="section-padding">
             <Container>
-                <div className="text-center mb-5">
+                <Reveal className="text-center mb-5">
                     <div className="section-kicker">02 / selected work</div>
                     <h2 className="display-5 fw-bold font-headline mb-3">Things I've shipped.</h2>
                     <p
@@ -21,11 +44,16 @@ export default function Projects() {
                     >
                         A selection of open-source tools, UI systems, and experiments built to solve real problems.
                     </p>
-                </div>
+                </Reveal>
                 <Row className="g-3 g-md-4">
-                    { visibleProjects.map((project) => (
+                    { visibleProjects.map((project, index) => (
                         <Col key={ project.title } xs={ 12 } md={ 6 } lg={ 6 }>
-                            <Card className="h-100 bg-body-tertiary border-secondary card-hover">
+                            <Reveal delay={ (index % 4) * 80 } className="h-100">
+                            <Card
+                                className="h-100 bg-body-tertiary border-secondary card-hover"
+                                onMouseMove={ handleCardTilt }
+                                onMouseLeave={ resetCardTilt }
+                            >
                                 <Card.Header className="bg-transparent border-0 pt-4">
                                     <Card.Title className="h4">{ project.title }</Card.Title>
                                     <Card.Text className="text-secondary">
@@ -87,6 +115,7 @@ export default function Projects() {
                                     </div>
                                 </Card.Footer>
                             </Card>
+                            </Reveal>
                         </Col>
                     )) }
                 </Row>
