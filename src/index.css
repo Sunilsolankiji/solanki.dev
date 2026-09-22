@@ -10,7 +10,7 @@
 	--surface: #111916;
 	--surface-raised: #18211e;
 	--body: #0b100e;
-	--grid-line: rgba(121, 217, 195, .035);
+	--grid-line: rgba(121, 217, 195, .09);
 	--spacing-2xl: 5rem;
 	--spacing-3xl: 8rem;
 	--transition-base: 0.25s ease;
@@ -184,8 +184,6 @@ section[id] {
 	display: flex;
 	position: relative;
 	overflow: hidden;
-	background: linear-gradient(rgba(121, 217, 195, .035) 1px, transparent 1px),
-	linear-gradient(90deg, rgba(121, 217, 195, .035) 1px, transparent 1px);
 	background-size: 52px 52px;
 	background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
 	linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
