@@ -19,12 +19,12 @@ export default function Header() {
 
 	return (
 		<Navbar expand="md" sticky="top" className="navbar-dark-custom border-bottom border-secondary">
-			<Container>
-				<Navbar.Brand href="#home" className="fw-bold font-headline">
+			<Container className="flex-nowrap">
+				<Navbar.Brand href="#home" className="fw-bold font-headline brand-text flex-shrink-0">
 					Solanki.Dev
 				</Navbar.Brand>
 
-			<div className="d-flex align-items-center gap-2 ms-auto me-md-0 order-md-last">
+			<div className="d-flex align-items-center gap-1 gap-md-2 ms-auto me-md-0 order-md-last flex-shrink-0">
 				<button
 					className="btn btn-outline-secondary btn-sm"
 					onClick={(e) => toggleTheme(e)}

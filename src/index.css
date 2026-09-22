@@ -76,6 +76,16 @@ a { text-underline-offset: 3px; }
 	letter-spacing: -0.045em;
 }
 
+.brand-text {
+	white-space: nowrap;
+}
+
+@media (max-width: 575.98px) {
+	.brand-text {
+		font-size: 1.05rem;
+	}
+}
+
 h1, h2, h3, h4, h5, h6 {
 	color: var(--ink);
 }
