@@ -4,8 +4,8 @@ import { ArrowUpRight, MapPin } from 'lucide-react';
 
 export default function Hero() {
     const [imageState, setImageState] = useState<'loading' | 'loaded' | 'error'>('loading');
-    const profileImage = '/images/me.png';
-    const placeholderImage = '/images/me-placeholder.jpeg';
+    const profileImage = 'images/me.png';
+    const placeholderImage = 'images/me-placeholder.jpeg';
 
     return (
         <section id="home" className="hero-section d-flex align-items-center justify-content-center">

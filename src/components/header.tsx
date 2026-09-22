@@ -20,7 +20,7 @@ export default function Header() {
 	return (
 		<Navbar expand="md" sticky="top" className="navbar-dark-custom border-bottom border-secondary">
 			<Container>
-				<Navbar.Brand href="/" className="fw-bold font-headline">
+				<Navbar.Brand href="#home" className="fw-bold font-headline">
 					Solanki.Dev
 				</Navbar.Brand>
 
