@@ -36,7 +36,7 @@ export default function Projects() {
         <section id="projects" className="section-padding">
             <Container>
                 <Reveal className="text-center mb-5">
-                    <div className="section-kicker">02 / selected work</div>
+                    <div className="section-kicker">03 / selected work</div>
                     <h2 className="display-5 fw-bold font-headline mb-3">Things I've shipped.</h2>
                     <p
                         className="lead text-secondary mx-auto"

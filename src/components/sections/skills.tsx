@@ -37,7 +37,7 @@ export default function Skills() {
         <section id="skills" className="section-padding bg-body-tertiary">
             <Container>
                 <Reveal as="div" className="text-center mb-5">
-                    <div className="section-kicker">03 / toolbox</div>
+                    <div className="section-kicker">02 / toolbox</div>
                     <h2 className="display-5 fw-bold font-headline mb-3">My everyday stack.</h2>
                     <p className="lead text-secondary mx-auto" style={ { maxWidth: '900px' } }>
                         A practical frontend toolkit for turning product ideas into accessible, maintainable interfaces.

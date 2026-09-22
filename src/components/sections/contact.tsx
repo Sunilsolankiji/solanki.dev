@@ -1,6 +1,7 @@
 import { Container, Button } from 'react-bootstrap';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import Reveal from '../Reveal';
+import MagneticButton from '../MagneticButton';
 
 export default function Contact() {
   const year = new Date().getFullYear();
@@ -16,10 +17,12 @@ export default function Contact() {
           </p>
         </Reveal>
         <div className="my-4">
-          <Button href="mailto:sunilso9644@gmail.com" variant="primary" size="lg">
-            <Mail className="me-2" size={16} />
-            Say Hello
-          </Button>
+          <MagneticButton>
+            <Button href="mailto:sunilso9644@gmail.com" variant="primary" size="lg">
+              <Mail className="me-2" size={16} />
+              Say Hello
+            </Button>
+          </MagneticButton>
         </div>
         <div className="d-flex justify-content-center gap-3 mb-4">
           <a

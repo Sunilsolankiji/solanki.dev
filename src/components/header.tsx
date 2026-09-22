@@ -1,20 +1,43 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Github, Linkedin, Menu, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 const routes = [
 	{ name: 'About', href: '#about' },
-	{ name: 'Projects', href: '#projects' },
 	{ name: 'Skills', href: '#skills' },
+	{ name: 'Projects', href: '#projects' },
 	{ name: 'Contact', href: '#contact' },
 ];
 
 export default function Header() {
 	const [expanded, setExpanded] = useState(false);
+	const [activeSection, setActiveSection] = useState('');
 	const { theme, toggleTheme } = useTheme();
 
 	const handleClose = () => setExpanded(false);
+
+	useEffect(() => {
+		const sections = routes
+			.map((route) => document.querySelector(route.href))
+			.filter((el): el is Element => el !== null);
+
+		if (sections.length === 0 || typeof IntersectionObserver === 'undefined') return;
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						setActiveSection(`#${entry.target.id}`);
+					}
+				});
+			},
+			{ rootMargin: '-45% 0px -50% 0px', threshold: 0 }
+		);
+
+		sections.forEach((section) => observer.observe(section));
+		return () => observer.disconnect();
+	}, []);
 
 	return (
 		<Navbar
@@ -72,7 +95,7 @@ export default function Header() {
 								key={route.href}
 								href={route.href}
 								onClick={handleClose}
-								className="text-secondary"
+								className={`text-secondary nav-link-underline ${activeSection === route.href ? 'active fw-semibold' : ''}`}
 							>
 								{route.name}
 							</Nav.Link>
