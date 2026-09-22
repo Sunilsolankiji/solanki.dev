@@ -18,7 +18,7 @@ export default function Contact() {
         </Reveal>
         <div className="my-4">
           <MagneticButton>
-            <Button href="mailto:sunilso9644@gmail.com" variant="primary" size="lg">
+            <Button href="mailto:sunilsolanki.eng@gmail.com" variant="primary" size="lg">
               <Mail className="me-2" size={16} />
               Say Hello
             </Button>
