@@ -8,9 +8,8 @@ export default function Contact() {
     <footer id="contact" className="section-padding border-top border-secondary">
       <Container className="text-center">
         <div className="mb-4">
-          <h2 className="display-5 fw-bold font-headline mb-3">
-            Get In Touch
-          </h2>
+          <div className="section-kicker">04 / contact</div>
+          <h2 className="display-5 fw-bold font-headline mb-3">Have a good one in mind?</h2>
           <p className="lead text-secondary mx-auto" style={{ maxWidth: '600px' }}>
             I'm always open to discussing new projects, creative ideas, or opportunities to be part of an amazing team. Feel free to reach out!
           </p>

@@ -13,15 +13,13 @@ export default function Projects() {
         <section id="projects" className="section-padding">
             <Container>
                 <div className="text-center mb-5">
-                    <h2 className="display-5 fw-bold font-headline mb-3">
-                        My Projects
-                    </h2>
+                    <div className="section-kicker">02 / selected work</div>
+                    <h2 className="display-5 fw-bold font-headline mb-3">Things I've shipped.</h2>
                     <p
                         className="lead text-secondary mx-auto"
                         style={ { maxWidth: "900px" } }
                     >
-                        Here are some of the projects I've worked on. Each one represents
-                        a learning journey and a step forward in my development career.
+                        A selection of open-source tools, UI systems, and experiments built to solve real problems.
                     </p>
                 </div>
                 <Row className="g-3 g-md-4">

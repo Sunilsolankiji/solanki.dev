@@ -6,14 +6,13 @@ export default function About() {
     <section id="about" className="section-padding bg-body-tertiary">
       <Container>
         <div className="text-center">
-          <h2 className="display-5 fw-bold font-headline mb-4">
-            About Me
-          </h2>
+          <div className="section-kicker">01 / about</div>
+          <h2 className="display-5 fw-bold font-headline mb-4">Building with intent.</h2>
           <p className="lead text-secondary mx-auto" style={{ maxWidth: '900px' }}>
-            Software Developer with 4+ years of experience specializing in Angular, React, JavaScript,
+            Frontend Developer with 4+ years of experience specializing in Angular, React, JavaScript,
             TypeScript, and modern UI frameworks. I have built
             scalable dashboards, JavaScript Gantt Chart and TourJS libraries and
-            high-quality UI systems across multiple domains. Additionally, I
+            high-quality UI systems across multiple domains. I
             designed and developed a reusable Angular Component Library now
             used across 30+ projects, improving development efficiency,
             consistency, and code maintainability across teams. Known for

@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import { ArrowDown } from 'lucide-react';
+import { ArrowUpRight, MapPin } from 'lucide-react';
 
 export default function Hero() {
-    const [loaded, setLoaded] = useState(false);
+    const [imageState, setImageState] = useState<'loading' | 'loaded' | 'error'>('loading');
+    const profileImage = '/images/me.png';
+    const placeholderImage = '/images/me-placeholder.jpeg';
 
     return (
         <section id="home" className="hero-section d-flex align-items-center justify-content-center">
@@ -11,47 +13,67 @@ export default function Hero() {
                 <Row className="g-4 g-lg-5 align-items-center">
                     <Col lg={ 6 } className="order-2 order-lg-1">
                         <div className="mb-4">
+                            <div className="eyebrow greeting mb-3">नमस्ते,</div>
                             <h1 className="display-4 fw-bold font-headline mb-3">
-                                <span style={ { fontSize: '1.5rem', fontWeight: 500 } }>नमस्ते,</span>
-                                <br/>
-                                I'm Sunil Solanki
+                                I'm <span className="text-accent">Sunil Solanki</span>
                             </h1>
-                            <p className="lead text-secondary">
-                                Software Developer,
-                                <br/>
-                                Specializing in Angular, React, JavaScript, and TypeScript.
-                                <br/>
-                                Passionate about building modern web applications and learning new technologies.
+                            <div className="eyebrow availability"><span className="status-dot" /> Available for select opportunities</div>
+                            <p className="hero-subtitle text-secondary">
+                                Frontend engineer crafting thoughtful, high-performance interfaces and developer tools with Angular, React, TypeScript, and JavaScript.
                             </p>
+                            <div className="hero-meta text-secondary">
+                                <span><MapPin size={15} /> India · working globally</span>
+                                <span className="meta-divider" />
+                                <span>4+ years building for the web</span>
+                            </div>
                         </div>
                         <div className="d-flex flex-column flex-sm-row gap-2">
                             <Button href="#projects" variant="primary" size="lg">
-                                View My Work
-                                <ArrowDown className="ms-2" size={ 16 }/>
+                                Explore my work
+                                <ArrowUpRight className="ms-2" size={ 16 }/>
                             </Button>
-                            <Button href="#contact" variant="secondary" size="lg">
-                                Contact Me
+                            <Button href="#contact" variant="outline-secondary" size="lg">
+                                Let's connect
                             </Button>
+                        </div>
+                        <div className="hero-proof" aria-label="Career highlights">
+                            <div><strong>4+</strong><span>years building</span></div>
+                            <div><strong>30+</strong><span>projects supported</span></div>
+                            <div><strong>∞</strong><span>curiosity shipped</span></div>
                         </div>
                     </Col>
                     <Col lg={ 6 } className="order-1 order-lg-2 text-center">
-                        <div className="hero-image-wrapper">
-                            { !loaded && (
+                        <div className="hero-visual">
+                            <div className="code-card">
+                                <div className="code-card-bar"><span /><span /><span /><small>sunil.ts</small></div>
+                                <div className="code-card-content">
+                                    <span className="code-muted">const</span> <span className="code-blue">developer</span> = {'{'}<br />
+                                    <span className="code-indent">name: <span className="code-green">'Sunil Solanki'</span>,</span><br />
+                                    <span className="code-indent">focus: <span className="code-green">'great UX'</span>,</span><br />
+                                    <span className="code-indent">ships: <span className="code-purple">true</span></span><br />
+                                    {'}'};
+                                </div>
+                            </div>
+                            <div className="hero-image-wrapper">
+                            { imageState !== 'loaded' && (
                                 <img
-                                    src='images/me-placeholder.jpg'
+                                    src={ placeholderImage }
                                     alt=""
                                     aria-hidden="true"
-                                    className="hero-image rounded-circle shadow-lg placeholder"
+                                    className="hero-image placeholder"
                                 />
                             ) }
 
-                            <img
-                                src='images/me.jpg'
-                                alt='Sunil Solanki'
-                                className={ `hero-image rounded-circle shadow-lg main-image ${ loaded ? 'loaded' : '' }` }
-                                onLoad={ () => setLoaded(true) }
-                                style={ loaded ? undefined : { display: 'none' } }
-                            />
+                            { imageState !== 'error' && (
+                                <img
+                                    src={ profileImage }
+                                    alt="Sunil Solanki"
+                                    className={ `hero-image main-image ${ imageState === 'loaded' ? 'loaded' : '' }` }
+                                    onLoad={ () => setImageState('loaded') }
+                                    onError={ () => setImageState('error') }
+                                />
+                            ) }
+                            </div>
                         </div>
                     </Col>
                 </Row>

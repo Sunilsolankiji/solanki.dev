@@ -36,12 +36,10 @@ export default function Skills() {
         <section id="skills" className="section-padding bg-body-tertiary">
             <Container>
                 <div className="text-center mb-5">
-                    <h2 className="display-5 fw-bold font-headline mb-3">
-                        Skills & Technologies
-                    </h2>
+                    <div className="section-kicker">03 / toolbox</div>
+                    <h2 className="display-5 fw-bold font-headline mb-3">My everyday stack.</h2>
                     <p className="lead text-secondary mx-auto" style={ { maxWidth: '900px' } }>
-                        I'm proficient in a range of modern web technologies, with a strong focus on the front-end and a
-                        keen interest in expanding my skills to become a full-stack developer.
+                        A practical frontend toolkit for turning product ideas into accessible, maintainable interfaces.
                     </p>
                 </div>
                 <Row className="g-3 g-md-4 justify-content-center">
