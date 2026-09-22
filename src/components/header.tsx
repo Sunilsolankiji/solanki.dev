@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Github, Linkedin, Menu, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
@@ -11,15 +11,19 @@ const routes = [
 ];
 
 export default function Header() {
-	const [show, setShow] = useState(false);
+	const [expanded, setExpanded] = useState(false);
 	const { theme, toggleTheme } = useTheme();
 
-	const handleClose = () => setShow(false);
-	const handleShow = () => setShow(true);
+	const handleClose = () => setExpanded(false);
 
 	return (
-		<Navbar expand="md" sticky="top" className="navbar-dark-custom border-bottom border-secondary">
-			<Container className="flex-nowrap">
+		<Navbar
+			expand="md"
+			expanded={expanded}
+			sticky="top"
+			className="navbar-dark-custom border-bottom border-secondary"
+		>
+			<Container>
 				<Navbar.Brand href="#home" className="fw-bold font-headline brand-text flex-shrink-0">
 					Solanki.Dev
 				</Navbar.Brand>
@@ -53,42 +57,28 @@ export default function Header() {
 				</a>
 					<button
 						className="btn btn-outline-secondary btn-sm d-md-none"
-						onClick={handleShow}
+						onClick={() => setExpanded((prev) => !prev)}
 						aria-label="Toggle Menu"
+						aria-expanded={expanded}
 					>
 						<Menu size={16} />
 					</button>
 				</div>
 
-				<Navbar.Collapse className="d-none d-md-flex">
+				<Navbar.Collapse className="mt-2 mt-md-0">
 					<Nav className="me-auto">
 						{routes.map((route) => (
-							<Nav.Link key={route.href} href={route.href} className="text-secondary">
+							<Nav.Link
+								key={route.href}
+								href={route.href}
+								onClick={handleClose}
+								className="text-secondary"
+							>
 								{route.name}
 							</Nav.Link>
 						))}
 					</Nav>
 				</Navbar.Collapse>
-
-				<Offcanvas show={show} onHide={handleClose} placement="start">
-					<Offcanvas.Header closeButton>
-						<Offcanvas.Title className="fw-bold font-headline">Solanki.Dev</Offcanvas.Title>
-					</Offcanvas.Header>
-					<Offcanvas.Body>
-						<Nav className="flex-column gap-3">
-							{routes.map((route) => (
-								<Nav.Link
-									key={route.href}
-									href={route.href}
-									onClick={handleClose}
-									className="fs-5 text-secondary"
-								>
-									{route.name}
-								</Nav.Link>
-							))}
-						</Nav>
-					</Offcanvas.Body>
-				</Offcanvas>
 			</Container>
 		</Navbar>
 	);

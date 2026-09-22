@@ -609,13 +609,17 @@ footer {
 	}
 
 	.hero-image {
-		width: min(255px, calc(100vw - 3rem));
+		width: 100%;
 		height: auto;
 		aspect-ratio: 17 / 20;
 	}
 
 	.hero-visual {
 		width: 100%;
+	}
+
+	.hero-image-wrapper {
+		width: min(255px, 100%);
 	}
 
 	.code-card {

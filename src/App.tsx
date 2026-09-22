@@ -11,7 +11,7 @@ function AppContent() {
   return (
     <div className="d-flex flex-column min-vh-100">
       <Header />
-      <main className="flex-grow-1 w-100">
+      <main className="flex-grow-1 w-100 overflow-x-hidden">
         <Hero />
         <About />
         <Skills />
