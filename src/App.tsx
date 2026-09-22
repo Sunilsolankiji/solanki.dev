@@ -5,6 +5,7 @@ import Projects from './components/sections/projects';
 import Skills from './components/sections/skills';
 import Contact from './components/sections/contact';
 import { ThemeProvider } from './context/ThemeContext';
+import ScrollProgress from './components/ScrollProgress';
 
 function AppContent() {
   return (
@@ -17,6 +18,7 @@ function AppContent() {
         <Projects />
         <Contact />
       </main>
+      <ScrollProgress />
     </div>
   );
 }
